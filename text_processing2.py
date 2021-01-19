@@ -72,13 +72,13 @@ def to_camel_case(underscore_str):
             "alreadyCamel"
     """
 
-    if underscore_str.find('_') != -1:
-        new_string = underscore_str.replace('_',' ')
-        new_string = new_string.title()
-        camelcase_str = "".join(new_string.split())
-        if len(camelcase_str) != 0:
-            camelcase_str = camelcase_str[0].lower() + camelcase_str[1:]
-    else :
-        camelcase_str = underscore_str[0].lower() + underscore_str[1:]
+    new_string = underscore_str.replace('_',' ')
+    if len(new_string.split()) == 1:
+        return new_string[0].lower() + new_string[1:]
+
+    string_list = new_string.title().split()
+    if len(string_list) != 0:
+        string_list[0] = string_list[0][0].lower() + string_list[0][1:]
     
+    camelcase_str = "".join(string_list)
     return camelcase_str
