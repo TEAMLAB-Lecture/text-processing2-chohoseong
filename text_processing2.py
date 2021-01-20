@@ -73,8 +73,12 @@ def to_camel_case(underscore_str):
     """
 
     new_string = underscore_str.replace('_',' ')
+
     if len(new_string.split()) == 1:
         return new_string[0].lower() + new_string[1:]
+
+    elif len(new_string.split()) == 0:
+        return underscore_str
 
     string_list = new_string.title().split()
     if len(string_list) != 0:
